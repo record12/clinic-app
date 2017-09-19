@@ -16,6 +16,7 @@ import { NoContentComponent } from './components/no-content/no-content.component
 import { ClinicDetailComponent } from './components/clinic-detail/clinic-detail.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
   providers: [
     ClinicService,
     PatientService,
+    StorageService,
   ],
   bootstrap: [AppComponent]
 })
