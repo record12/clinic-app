@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
 
+export const RELATIONS = {
+  PATIENT_CLINIC: 'patient_clinic',
+  THERAPIST_CLINIC: 'therapist_clinic',
+  PATIENT_THERAPIST: 'patient_therapist'
+};
+
 @Injectable()
 export class RelationService {
 
