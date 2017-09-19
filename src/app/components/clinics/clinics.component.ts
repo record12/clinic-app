@@ -32,6 +32,16 @@ export class ClinicsComponent implements OnInit {
     }
   }
 
+  public add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.dataService.create(name)
+    .then(item => {
+      this.clinics.push(item);
+      this.selected = null;
+    });
+  }
+
   public delete() {
     const id = this.selected.id;
     this.dataService.delete(id).then(() => {

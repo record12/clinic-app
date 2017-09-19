@@ -26,6 +26,14 @@ export class ClinicService {
       .catch(this.handleError);
   }
 
+  public create(name: string): Promise<Clinic> {
+    return this.http
+      .post(this.dataUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data as Clinic)
+      .catch(this.handleError);
+  }
+
   public update(clinic: Clinic): Promise<Clinic> {
     const url = `${this.dataUrl}/${clinic.id}`;
     return this.http

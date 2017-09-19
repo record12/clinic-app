@@ -1,5 +1,10 @@
 <div>
   <h2>List of clinics</h2>
+  <div>
+    <label>Clinic name</label>
+    <input #newClinicName />
+    <button (click)="add(newClinicName.value);newClinicName.value=''">Add</button>
+  </div>
   <ul class="clinics">
     <li *ngFor="let clinic of clinics"
         [class.selected]="clinic === selected"
@@ -12,7 +17,7 @@
   <div *ngIf="selected">
     <h2>Selected clinic</h2>
     <div>{{ selected.name }}</div>
-    <button (click)="gotoDetail()">View details</button>
+    <button (click)="gotoDetail()">View details / Edit</button>
     <button (click)="delete()">Delete</button>
   </div>
 </div>
