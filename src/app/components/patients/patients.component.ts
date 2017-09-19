@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../services/patient.service';
 import { Patient } from '../../interfaces/patient';
+import { RELATIONS, RelationService } from '../../services/relation.service';
 
 @Component({
   selector: 'app-patients',
@@ -14,6 +15,7 @@ export class PatientsComponent implements OnInit {
   public selected: Patient = null;
 
   constructor(private dataService: PatientService,
+              private relationService: RelationService,
               private router: Router) { }
 
   ngOnInit() {
@@ -47,6 +49,8 @@ export class PatientsComponent implements OnInit {
     this.dataService.delete(id).then(() => {
       this.patients = this.patients.filter((item) => item.id !== id);
       this.selected = null;
+      // remove a clinic relation
+      this.relationService.remove(RELATIONS.PATIENT_CLINIC, id);
     });
   }
 

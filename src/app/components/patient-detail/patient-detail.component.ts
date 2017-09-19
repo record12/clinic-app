@@ -6,7 +6,7 @@ import { Patient } from '../../interfaces/patient';
 import { Clinic } from '../../interfaces/clinic';
 import { PatientService } from '../../services/patient.service';
 import { ClinicService } from '../../services/clinic.service';
-import { StorageService } from '../../services/storage.service';
+import { RELATIONS, RelationService } from '../../services/relation.service';
 
 @Component({
   selector: 'app-patient-detail',
@@ -19,11 +19,11 @@ export class PatientDetailComponent implements OnInit {
   public clinicList: Clinic[]; // clinic array
   public relClinicId: number; // related Clinic for the patient
 
-  private clinicStorageKey = 'patient_clinic';
+  private clinicStorageKey = RELATIONS.PATIENT_CLINIC;
 
   constructor(private dataService: PatientService,
               private clinicService: ClinicService,
-              private storageService: StorageService,
+              private relationService: RelationService,
               private route: ActivatedRoute,
               private location: Location) { }
 
@@ -33,10 +33,7 @@ export class PatientDetailComponent implements OnInit {
       .subscribe(patient => {
         this.patient = patient;
         // get a related clinic from storage
-        const value = this.storageService.getObj(this.clinicStorageKey);
-        if (patient.id in value) {
-          this.relClinicId = value[patient.id];
-        }
+        this.relClinicId = this.relationService.get(this.clinicStorageKey, patient.id);
       });
 
     this.clinicService.getAll()
@@ -51,9 +48,7 @@ export class PatientDetailComponent implements OnInit {
     this.dataService.update(this.patient)
     .then(() => {
       // save related clinic to storage
-      const clinicRelations = this.storageService.getObj(this.clinicStorageKey);
-      clinicRelations[this.patient.id] = this.relClinicId;
-      this.storageService.setObj(this.clinicStorageKey, clinicRelations);
+      this.relationService.set(this.clinicStorageKey, this.patient.id, this.relClinicId);
 
       this.goBack();
     });
