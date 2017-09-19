@@ -1,0 +1,23 @@
+<div>
+  <h2>List of patients</h2>
+  <div>
+    <label>Patient name</label>
+    <input #newPatientName />
+    <button (click)="add(newPatientName.value);newPatientName.value=''">Add</button>
+  </div>
+  <ul class="patients">
+    <li *ngFor="let patient of patients"
+        [class.selected]="patient === selected"
+        (click)="onSelect(patient)"
+    >
+      {{ patient.id }}: {{ patient.name }}
+    </li>
+  </ul>
+
+  <div *ngIf="selected">
+    <h2>Selected patient</h2>
+    <div>{{ selected.name }}</div>
+    <button (click)="gotoDetail()">View details / Edit</button>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>

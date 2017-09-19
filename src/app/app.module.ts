@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { ClinicService } from './services/clinic.service';
+import { PatientService } from './services/patient.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ClinicsComponent } from './components/clinics/clinics.component';
 import { NoContentComponent } from './components/no-content/no-content.component';
 import { ClinicDetailComponent } from './components/clinic-detail/clinic-detail.component';
+import { PatientsComponent } from './components/patients/patients.component';
+import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { ClinicDetailComponent } from './components/clinic-detail/clinic-detail.
     ClinicsComponent,
     NoContentComponent,
     ClinicDetailComponent,
+    PatientDetailComponent,
+    PatientsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,7 @@ import { ClinicDetailComponent } from './components/clinic-detail/clinic-detail.
   ],
   providers: [
     ClinicService,
+    PatientService,
   ],
   bootstrap: [AppComponent]
 })

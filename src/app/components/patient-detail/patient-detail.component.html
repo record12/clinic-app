@@ -1,0 +1,14 @@
+<div *ngIf="patient">
+  <h3>
+    detail for {{ patient.name }}
+  </h3>
+  <div>
+    <div>id: {{ patient.id }}</div>
+    <div>
+      <label>Name</label>
+      <input [(ngModel)]="patient.name" placeholder="Enter patient name" />
+    </div>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
