@@ -1,3 +1,16 @@
-<p>
-  clinics works!
-</p>
+<div>
+  <h2>List of clinics</h2>
+  <ul class="clinics">
+    <li *ngFor="let clinic of clinics"
+        [class.selected]="clinic === selected"
+        (click)="onSelect(clinic)"
+    >
+      {{ clinic.id }}: {{ clinic.name }}
+    </li>
+  </ul>
+
+  <div *ngIf="selected">
+    <h2>Selected clinic</h2>
+    <div>{{ selected.name }}</div>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClinicService } from '../../services/clinic.service';
+import { Clinic } from '../../interfaces/clinic';
 
 @Component({
   selector: 'app-clinics',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClinicsComponent implements OnInit {
 
-  constructor() { }
+  public clinics: Clinic[ ];
+  public selected: Clinic = null;
+
+  constructor(private dataService: ClinicService) { }
 
   ngOnInit() {
+    this.dataService.getAll()
+      .then(items => {
+        this.clinics = items;
+        console.log(this.clinics);
+      });
+  }
+
+  public onSelect(clinic: Clinic) {
+    if (clinic === this.selected) {
+      this.selected = null;
+    } else {
+      this.selected = clinic;
+    }
   }
 
 }
