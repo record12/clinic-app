@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClinicService } from '../../services/clinic.service';
 import { Clinic } from '../../interfaces/clinic';
 
@@ -12,7 +13,8 @@ export class ClinicsComponent implements OnInit {
   public clinics: Clinic[ ];
   public selected: Clinic = null;
 
-  constructor(private dataService: ClinicService) { }
+  constructor(private dataService: ClinicService,
+              private router: Router) { }
 
   ngOnInit() {
     this.dataService.getAll()
@@ -28,6 +30,10 @@ export class ClinicsComponent implements OnInit {
     } else {
       this.selected = clinic;
     }
+  }
+
+  public gotoDetail() {
+    this.router.navigate(['/clinics', this.selected.id]);
   }
 
 }

@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ClinicsComponent } from './components/clinics/clinics.component';
 import { NoContentComponent } from './components/no-content/no-content.component';
+import { ClinicDetailComponent } from './components/clinic-detail/clinic-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ClinicsComponent,
-    NoContentComponent
+    NoContentComponent,
+    ClinicDetailComponent,
   ],
   imports: [
     BrowserModule,

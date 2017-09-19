@@ -1,7 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+$accent-color: #5571ff;
+
 ul {
   li.selected {
-    background-color: #5571ff;
+    background-color: $accent-color;
   }
+}
+
+button {
+  padding: 5px 10px;
+  margin: 10px;
+  background: $accent-color;
+  color: white;
+  border: none;
+  font-size: 14px;
 }

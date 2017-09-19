@@ -1,0 +1,10 @@
+<div *ngIf="clinic">
+  <h3>
+    detail for {{ clinic.name }}
+  </h3>
+  <div>
+    <div>id: {{ clinic.id }}</div>
+    <div>name: {{ clinic.name }}</div>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
