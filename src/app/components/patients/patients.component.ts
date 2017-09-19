@@ -51,6 +51,8 @@ export class PatientsComponent implements OnInit {
       this.selected = null;
       // remove a clinic relation
       this.relationService.remove(RELATIONS.PATIENT_CLINIC, id);
+      // remove a therapist relation
+      this.relationService.remove(RELATIONS.PATIENT_THERAPIST, id);
     });
   }
 

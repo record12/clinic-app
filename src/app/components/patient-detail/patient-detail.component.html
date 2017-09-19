@@ -16,6 +16,14 @@
                 [selected]="clinic.id === relClinicId">{{ clinic.name }}</option>
       </select>
     </div>
+    <div>
+      <label>Therapist</label>
+      <select [(ngModel)]="relTherapistId">
+        <option *ngFor="let therapist of therapistList"
+                value="{{ therapist.id }}"
+                [selected]="therapist.id === relClinicId">{{ therapist.name }}</option>
+      </select>
+    </div>
   </div>
   <button (click)="goBack()">Back</button>
   <button (click)="save()">Save</button>
