@@ -1,12 +1,13 @@
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Clinic } from '../interfaces/clinic';
 
 @Injectable()
 export class ClinicService {
 
   private dataUrl = 'api/clinics';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) { }
 
@@ -22,6 +23,15 @@ export class ClinicService {
     return this.http.get(url)
       .toPromise()
       .then(response => response.json().data as Clinic)
+      .catch(this.handleError);
+  }
+
+  public update(clinic: Clinic): Promise<Clinic> {
+    const url = `${this.dataUrl}/${clinic.id}`;
+    return this.http
+      .put(url, JSON.stringify(clinic), {headers: this.headers})
+      .toPromise()
+      .then(() => clinic)
       .catch(this.handleError);
   }
 

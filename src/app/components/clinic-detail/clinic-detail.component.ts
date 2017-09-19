@@ -28,4 +28,9 @@ export class ClinicDetailComponent implements OnInit {
     this.location.back();
   }
 
+  public save() {
+    this.dataService.update(this.clinic)
+      .then(() => this.goBack());
+  }
+
 }

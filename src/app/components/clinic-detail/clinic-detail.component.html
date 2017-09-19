@@ -4,7 +4,11 @@
   </h3>
   <div>
     <div>id: {{ clinic.id }}</div>
-    <div>name: {{ clinic.name }}</div>
+    <div>
+      <label>Name</label>
+      <input [(ngModel)]="clinic.name" placeholder="Enter clinic name" />
+    </div>
   </div>
   <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
 </div>
