@@ -7,6 +7,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { ClinicService } from './services/clinic.service';
 import { PatientService } from './services/patient.service';
+import { TherapistService } from './services/therapist.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
 import { StorageService } from './services/storage.service';
 import { RelationService } from './services/relation.service';
+import { TherapistsComponent } from './components/therapists/therapists.component';
+import { TherapistDetailComponent } from './components/therapist-detail/therapist-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { RelationService } from './services/relation.service';
     ClinicDetailComponent,
     PatientDetailComponent,
     PatientsComponent,
+    TherapistsComponent,
+    TherapistDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { RelationService } from './services/relation.service';
   providers: [
     ClinicService,
     PatientService,
+    TherapistService,
     StorageService,
     RelationService,
   ],

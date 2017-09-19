@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Clinic } from '../interfaces/clinic';
 import { Patient } from '../interfaces/patient';
+import { Therapist } from '../interfaces/therapist';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -50,6 +51,29 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 20, name: 'Ellette Emeline' },
     ];
 
-    return { clinics, patients };
+    const therapists: Therapist[] = [
+      { id: 1, name: 'Haywood Ahrenius' },
+      { id: 2, name: 'Araldo Geekin' },
+      { id: 3, name: 'Clio Kemet' },
+      { id: 4, name: 'Miner Cristoferi' },
+      { id: 5, name: 'Munmro Dowderswell' },
+      { id: 6, name: 'Caryn Cudbird' },
+      { id: 7, name: 'Dav Coupland' },
+      { id: 8, name: 'Koren Saice' },
+      { id: 9, name: 'Crystal Antonio' },
+      { id: 10, name: 'Carie Boscher' },
+      { id: 11, name: 'Ford McTrustie' },
+      { id: 12, name: 'Pegeen Annandale' },
+      { id: 13, name: 'Putnam Richford' },
+      { id: 14, name: 'Morgana Feeney' },
+      { id: 15, name: 'Floris Sim' },
+      { id: 16, name: 'Chuck Lavery' },
+      { id: 17, name: 'Hallsy Kless' },
+      { id: 18, name: 'Danie MacCrosson' },
+      { id: 19, name: 'Theobald Vaune' },
+      { id: 20, name: 'Oberon Tilling' },
+    ];
+
+    return { clinics, patients, therapists };
   }
 }

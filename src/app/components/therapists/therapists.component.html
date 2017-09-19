@@ -1,0 +1,23 @@
+<div>
+  <h2>List of therapists</h2>
+  <div>
+    <label>Therapist name</label>
+    <input #newTherapistName />
+    <button (click)="add(newTherapistName.value);newTherapistName.value=''">Add</button>
+  </div>
+  <ul class="therapists">
+    <li *ngFor="let therapist of therapists"
+        [class.selected]="therapist === selected"
+        (click)="onSelect(therapist)"
+    >
+      {{ therapist.id }}: {{ therapist.name }}
+    </li>
+  </ul>
+
+  <div *ngIf="selected">
+    <h2>Selected therapist</h2>
+    <div>{{ selected.name }}</div>
+    <button (click)="gotoDetail()">View details / Edit</button>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div *ngIf="therapist">
+  <h3>
+    detail for {{ therapist.name }}
+  </h3>
+  <div>
+    <div>id: {{ therapist.id }}</div>
+    <div>
+      <label>Name</label>
+      <input [(ngModel)]="therapist.name" placeholder="Enter therapist name" />
+    </div>
+    <div>
+      <label>Clinic</label>
+      <select [(ngModel)]="relClinicId">
+        <option *ngFor="let clinic of clinicList"
+                value="{{ clinic.id }}"
+                [selected]="clinic.id === relClinicId">{{ clinic.name }}</option>
+      </select>
+    </div>
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
