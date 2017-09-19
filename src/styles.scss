@@ -4,26 +4,32 @@
 $accent-color: #5571ff;
 $background-color: #ddeeff;
 
-ul {
-  padding: 0;
+body {
+  padding: 15px;
 
-  li {
-    display: block;
-    padding: 3px 10px;
-    margin: 5px auto;
-    background-color: $background-color;
+  ul {
+    padding: 0;
+
+    li {
+      display: block;
+      padding: 3px 10px;
+      margin: 5px auto;
+      background-color: $background-color;
+    }
+
+    li.selected {
+      background-color: $accent-color;
+    }
   }
 
-  li.selected {
-    background-color: $accent-color;
+  button {
+    padding: 5px 10px;
+    margin: 10px;
+    margin-left: 0;
+    background: $accent-color;
+    color: white;
+    border: none;
+    font-size: 14px;
   }
-}
 
-button {
-  padding: 5px 10px;
-  margin: 10px;
-  background: $accent-color;
-  color: white;
-  border: none;
-  font-size: 14px;
 }
