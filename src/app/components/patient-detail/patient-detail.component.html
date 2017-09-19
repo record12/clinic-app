@@ -8,6 +8,14 @@
       <label>Name</label>
       <input [(ngModel)]="patient.name" placeholder="Enter patient name" />
     </div>
+    <div>
+      <label>Clinic</label>
+      <select [(ngModel)]="relClinicId">
+        <option *ngFor="let clinic of clinicList"
+                value="{{ clinic.id }}"
+                [selected]="clinic.id === relClinicId">{{ clinic.name }}</option>
+      </select>
+    </div>
   </div>
   <button (click)="goBack()">Back</button>
   <button (click)="save()">Save</button>
