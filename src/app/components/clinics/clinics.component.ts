@@ -32,6 +32,14 @@ export class ClinicsComponent implements OnInit {
     }
   }
 
+  public delete() {
+    const id = this.selected.id;
+    this.dataService.delete(id).then(() => {
+      this.clinics = this.clinics.filter((item) => item.id !== id);
+      this.selected = null;
+    });
+  }
+
   public gotoDetail() {
     this.router.navigate(['/clinics', this.selected.id]);
   }
